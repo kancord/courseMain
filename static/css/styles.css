@@ -1,0 +1,18 @@
+body{
+    font-size: 14px;
+}
+
+.container-fluid{
+    padding: 18px 20px;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.sidebar-nav {
+    margin-top: 15px;
+    padding: 20px 20px;
+    list-style: none;
+    font-size: 12px;
+}
+
+

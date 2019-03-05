@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ courseName }}</h1>
+    {% if docs %}
+        <ul>
+        {% for singledoc in docs %}
+          <li>
+            <a href="{{ singledoc.media_file.url }}">{{ singledoc.name }}</a>
+          </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+    <p>Empty</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Курс</h1>
+<p>Страница курсов</p>
+     <div >
+     <p><strong>Курсов на сайте:</strong> {{ num_course }}</p>
+    {% if user.is_authenticated %}
+     <p>Добро пожаловать</p>
+    {% else %}
+     <p>Войдите для продолжения</p>
+    {% endif %}
+  </div>
+{% endblock %}
