@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Курсы</h1>
+    {% if perms.studCource.add_course %} <a href="{%  url 'course_create' %}">Добавить</a> {% endif %}
     {% if course_list %}
         <ul>
         {% for course in course_list %}
           <li>
             <a href="{{ course.get_absolute_url }}">{{ course.name }}</a>
+              {% if perms.studCource.change_course %}
+               <a href="{%  url 'course_update' course.id %}">Изменить</a> <a href="{%  url 'course_delete' course.id %}">Удалить</a>
+              {% endif %}
           </li>
         {% endfor %}
         </ul>

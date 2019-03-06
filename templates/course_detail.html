@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>{{ courseName }}</h1>
+    {% if perms.studCource.add_course %} <a href="{%  url 'document_create' courseid %}">Добавить</a> {% endif %}
     {% if docs %}
         <ul>
         {% for singledoc in docs %}
           <li>
             <a href="{{ singledoc.media_file.url }}">{{ singledoc.name }}</a>
+              {% if perms.studCource.change_document %}
+                <a href="{%  url 'document_update' courseid singledoc.id  %}">Изменить</a> <a href="{%  url 'document_delete' courseid singledoc.id %}">Удалить</a>
+              {% endif %}
           </li>
         {% endfor %}
         </ul>

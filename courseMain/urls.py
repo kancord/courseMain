@@ -24,7 +24,12 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^courses/$', studCourse.views.CourseListView.as_view(), name ='courses'),
     url(r'^courses/(?P<pk>\d+)$', studCourse.views.CourseDetailView, name='course-detail'),
-    url('^tsturl/', studCourse.views.indextsturl),
+    url(r'^courses/create/$', studCourse.views.CourseCreate.as_view(), name='course_create'),
+    url(r'^courses/(?P<pk>\d+)/update/$', studCourse.views.CourseUpdate.as_view(), name='course_update'),
+    url(r'^courses/(?P<pk>\d+)/delete/$', studCourse.views.CourseDelete.as_view(), name='course_delete'),
+    url(r'^courses/(?P<pk>\d+)/createdoc/$', studCourse.views.DocumentCreate.as_view(), name='document_create'),
+    url(r'^courses/(?P<pk1>\d+)//(?P<pk>\d+)updatedoc/$', studCourse.views.DocumentUpdate.as_view(), name='document_update'),
+    url(r'^courses/(?P<pk1>\d+)//(?P<pk>\d+)deletedoc/$', studCourse.views.DocumentDelete.as_view(), name='document_delete'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
 ]
 
