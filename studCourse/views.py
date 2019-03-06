@@ -48,7 +48,16 @@ def CourseDetailView(request, pk):
 
     return render(request,'course_detail.html', context={'docs':queryset, 'courseName':courseName, 'courseid': pk})
 
+class SubscribeListView(LoginRequiredMixin, generic.ListView):
+    model = Subscribe
+    context_object_name = 'subscribe_list'
+    template_name = 'subscribe_list.html'
 
+    def get_queryset(self):
+        if (self.request.user.is_staff):
+            return Subscribe.objects.all()
+        else:
+            return Subscribe.objects.none()
 
 class CourseCreate(CreateView):
     model = Course
@@ -79,3 +88,18 @@ class DocumentDelete(DeleteView):
     model = Document
     template_name = 'document_confurm_delete.html'
     success_url = reverse_lazy('courses')
+
+class SubCreate(CreateView):
+    model = Subscribe
+    fields = '__all__'
+    template_name = 'sub_form.html'
+
+class SubUpdate(UpdateView):
+    model = Subscribe
+    fields = '__all__'
+    template_name = 'sub_form.html'
+
+class SubDelete(DeleteView):
+    model = Subscribe
+    template_name = 'sub_confurm_delete.html'
+    success_url = reverse_lazy('subs')

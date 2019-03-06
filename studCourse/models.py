@@ -32,10 +32,10 @@ class Subscribe(models.Model):
         #UK
         unique_together = ('course', 'subUser')
 
-    #def get_absolute_url(self):
-    #    '''Служит для формирования ссылки'''
-    #    from django.urls import reverse
-    #    return reverse('course-detail', args=[str(self.id)])
+    def get_absolute_url(self):
+        '''Служит для формирования ссылки'''
+        from django.urls import reverse
+        return reverse('subs')
 
 class Document(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)

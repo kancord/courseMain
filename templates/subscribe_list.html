@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Подписки</h1>
+    {% if perms.studCource.add_subscribe %} <a href="{% url 'sub_create' %}">Добавить</a>
+    {% if subscribe_list %}
+        <ul>
+        {% for sub in subscribe_list %}
+          <li>
+            <p>{{ sub.subUser.username }} + {{ sub.course.name }}</p>
+              {% if perms.studCource.change_subscribe %}
+               <a href="{% url 'sub_update' sub.id %}">Изменить</a> <a href="{% url 'sub_delete' sub.id %}">Удалить</a>
+              {% endif %}
+          </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+    <p>No perm</p>
+    {% endif %}
+    {% endif %}
+
+{% endblock %}

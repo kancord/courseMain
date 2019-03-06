@@ -28,6 +28,7 @@
       <ul class="sidebar-nav">
             <li><a href="{% url 'index' %}">Домашняя страница</a></li>
             <li><a href="{% url 'courses' %}">Курсы</a></li>
+            {% if perms.studCource.add_subscribes %} <li><a href="{% url 'subs' %}">Подписки</a></li> {% endif %}
 
       </ul>
     {% endblock %}

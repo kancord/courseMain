@@ -30,6 +30,10 @@ urlpatterns = [
     url(r'^courses/(?P<pk>\d+)/createdoc/$', studCourse.views.DocumentCreate.as_view(), name='document_create'),
     url(r'^courses/(?P<pk1>\d+)//(?P<pk>\d+)updatedoc/$', studCourse.views.DocumentUpdate.as_view(), name='document_update'),
     url(r'^courses/(?P<pk1>\d+)//(?P<pk>\d+)deletedoc/$', studCourse.views.DocumentDelete.as_view(), name='document_delete'),
+    url(r'^subs/$', studCourse.views.SubscribeListView.as_view(), name ='subs'),
+    url(r'^subs/create/$', studCourse.views.SubCreate.as_view(), name='sub_create'),
+    url(r'^subs/(?P<pk>\d+)/update/$', studCourse.views.SubUpdate.as_view(), name='sub_update'),
+    url(r'^subs/(?P<pk>\d+)/delete/$', studCourse.views.SubDelete.as_view(), name='sub_delete'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
 ]
 
