@@ -28,8 +28,8 @@
       <System>1</System>
     </table>
     <table id="18" parent="2" name="studCourse_course"/>
-    <table id="19" parent="2" name="studCourse_documents"/>
-    <table id="20" parent="2" name="studCourse_subscribes"/>
+    <table id="19" parent="2" name="studCourse_document"/>
+    <table id="20" parent="2" name="studCourse_subscribe"/>
     <column id="21" parent="6" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
@@ -500,17 +500,17 @@ model</ColNames>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="118" parent="19" name="url">
+    <column id="118" parent="19" name="course_id">
       <Position>3</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="119" parent="19" name="course_id">
-      <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="120" parent="19" name="studCourse_documents_course_id_14455df1">
+    <column id="119" parent="19" name="media_file">
+      <Position>4</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="120" parent="19" name="studCourse_document_course_id_9eb2c991">
       <ColNames>course_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>

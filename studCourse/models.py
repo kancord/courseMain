@@ -48,3 +48,7 @@ class Document(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        '''Служит для формирования ссылки'''
+        from django.urls import reverse
+        return reverse('course-detail', args=[str(self.course_id)])

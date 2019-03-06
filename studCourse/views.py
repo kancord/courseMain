@@ -79,6 +79,7 @@ class DocumentCreate(CreateView):
     fields = '__all__'
     template_name = 'document_form.html'
 
+
 class DocumentUpdate(UpdateView):
     model = Document
     fields = '__all__'
